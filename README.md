@@ -23,6 +23,8 @@
    1. CosUpSimilarity
    2. AdCosUpSimilarity
    3. PccUpSimilarity
+-----
+之后根据自己需求执行不同的文件
 - 对测试集中的项目进行评分预测（依赖 COS_UPsim.csv、train_set.csv 两个文件），输出 prediction_rate_cos_upsim_*.csv 文件：
    1. WsPredictionRate
    2. DfmPredictionRate
