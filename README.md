@@ -18,7 +18,7 @@
 - 用于生成用户画像（传统基于用户的协同过滤不需要这一步），三个文件必须按书写顺序从前往后执行（依赖 users.dat train_set.csv 两个文件）。输出 user_profile.csv 文件。
    1. GenerateNewUserInfo
    2. MovieLabelIndex
-   3.UserProfile
+   3. UserProfile
 - 计算用户之间相似度（依赖生成的用户画像、训练集两个文件），输出 COS_UPsim.csv 文件:   
    1. CosUpSimilarity
    2. AdCosUpSimilarity
