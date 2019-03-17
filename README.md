@@ -13,25 +13,29 @@
 
 ## 总体介绍
 每一个文件代表一个过程，并且需按顺序，由上到下依次执行。每一过程产生的数据，都用 CSV 输出在本地，供下一过程使用。
-- 划分 ratings 数据集，输出 train_set.csv test_set.csv 两个文件（仅需执行一次，若需更换训练集、测试集则需再次执行）：
-   1. DivideData
-- 用于生成用户画像（传统基于用户的协同过滤不需要这一步），三个文件必须按书写顺序从前往后执行（依赖 users.dat train_set.csv 两个文件）。输出 user_profile.csv 文件。
-   1. GenerateNewUserInfo
-   2. MovieLabelIndex
-   3. UserProfile
-- 计算用户之间相似度（依赖生成的用户画像、训练集两个文件），输出 COS_UPsim.csv 文件:   
-   1. CosUpSimilarity
-   2. AdCosUpSimilarity
-   3. PccUpSimilarity
+1. 划分 ratings 数据集，输出 train_set.csv test_set.csv 两个文件（仅需执行一次，若需更换训练集、测试集则需再次执行）：
+   - DivideData
+2. 用于生成用户画像（传统基于用户的协同过滤不需要这一步），三个文件必须按书写顺序从前往后执行（依赖 users.dat train_set.csv 两个文件）。输出 user_profile.csv 文件。
+   - GenerateNewUserInfo
+   - MovieLabelIndex
+   - UserProfile
+3. 计算用户之间相似度（依赖生成的用户画像、训练集两个文件），输出 COS_UPsim.csv 文件:   
+   - CosUpSimilarity
+   - AdCosUpSimilarity
+   - PccUpSimilarity
 -----
 之后根据自己需求执行不同的文件
-- 对测试集中的项目进行评分预测（依赖 COS_UPsim.csv、train_set.csv 两个文件），输出 prediction_rate_cos_upsim_*.csv 文件：
-   1. WsPredictionRate
-   2. DfmPredictionRate
-- 计算 MAE 值，输出 mae_cosup_*.csv 文件：
-   1. EvaluateMaeInDifferentK_Ws
-   2. EvaluateMaeInDifferentK_Dfm
-- 计算 P、R 值，输出 pr_cosup_Dfm.csv 文件（WS需要的自己做）：
-   1. EvaluatePRinDifferentN
+4. 对测试集中的项目进行评分预测（依赖 COS_UPsim.csv、train_set.csv 两个文件），输出 prediction_rate_cos_upsim_*.csv 文件：
+   - WsPredictionRate
+   - DfmPredictionRate
+5. 计算 MAE 值，输出 mae_cosup_*.csv 文件：
+   - EvaluateMaeInDifferentK_Ws
+   - EvaluateMaeInDifferentK_Dfm
+6. 计算 P、R 值，输出 pr_cosup_Dfm.csv 文件（WS需要的自己做）：
+   - EvaluatePRinDifferentN
 
 old_method 中是对传统基于用户协同过滤推荐算法的实现。
+
+## 下一步工作
+1. 重复代码过多，需进行改良
+2. 继续完善其它推荐算法
